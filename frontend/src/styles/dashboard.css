@@ -1,0 +1,36 @@
+.dashboard-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.icon-box.primary {
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.icon-box.success {
+  background: #e8f8ee;
+  color: #16a34a;
+}
+
+.icon-box.warning {
+  background: #fff4df;
+  color: #f59e0b;
+}
+
+.icon-box.danger {
+  background: #ffe8e8;
+  color: #ef4444;
+}
