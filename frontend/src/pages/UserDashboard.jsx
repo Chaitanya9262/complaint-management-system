@@ -15,10 +15,10 @@ function UserDashboard() {
 
   const fullName = localStorage.getItem("fullName");
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
+  // const handleLogout = () => {
+  //   localStorage.clear();
+  //   navigate("/");
+  // };
 
   return (
     <div className="container py-4">
