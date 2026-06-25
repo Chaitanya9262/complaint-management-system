@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DashboardCard from "../components/DashboardCard";
@@ -65,16 +65,18 @@ function AdminDashboard() {
     }
   };
 
-  const fetchData = async () => {
-    setLoading(true);
+const fetchData = useCallback(async () => {
+  setLoading(true);
 
+  try {
     await Promise.all([
       loadStats(),
       loadComplaints(),
     ]);
-
+  } finally {
     setLoading(false);
-  };
+  }
+}, []);
 
   const handleStatusChange = async (id, status) => {
     try {
@@ -86,16 +88,18 @@ function AdminDashboard() {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+useEffect(() => {
+  fetchData();
+}, [fetchData]);
+
+  // useEffect(() => {
   useEffect(() => {
   const role = localStorage.getItem("role");
 
   if (role !== "ADMIN") {
     navigate("/dashboard");
   }
-}, []);
+}, [navigate]);
 
   return (
     <div className="container-fluid py-4">
